@@ -2,7 +2,6 @@ require "pry"
 class Artist
   
   attr_accessor :name, :songs
-  # attr_reader :songs
   
   @@all = []
   
@@ -30,11 +29,22 @@ class Artist
   end
   
   def add_song(song)
-    if !song.artist
-    song.artist = self
+    if song.artist != self
+       song.artist = self
     end
+    
     @songs << song unless @songs.include?(song)
     #binding.pry
+  end
+  
+  # def my_songs
+  #   Song.all.select do |song|
+  #     song.artist == self
+  #   end
+  # end
+    
+  def genres
+    songs.map {|song| song.genre}.uniq
   end
   
 end
