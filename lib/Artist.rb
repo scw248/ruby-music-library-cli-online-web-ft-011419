@@ -1,5 +1,6 @@
 require "pry"
 class Artist
+  extend Concerns::Findable
   
   attr_accessor :name, :songs
   
@@ -37,12 +38,6 @@ class Artist
     #binding.pry
   end
   
-  # def my_songs
-  #   Song.all.select do |song|
-  #     song.artist == self
-  #   end
-  # end
-    
   def genres
     songs.map {|song| song.genre}.uniq
   end
