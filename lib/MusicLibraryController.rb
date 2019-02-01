@@ -20,6 +20,22 @@ class MusicLibraryController
       puts "What would you like to do?"
       answer = gets.chomp
       break if answer == 'exit'
+      
+      case answer
+      
+      when "list songs"
+        list_songs
+      when "list artists"
+        list_artists
+      when "list genres"
+        list_genres
+      when "list artist"
+        list_songs_by_artist
+      when "list genre"
+        list_songs_by_genre
+      when "play song"
+        play_song
+      end
     end
   end
   
@@ -27,7 +43,7 @@ class MusicLibraryController
     counter = 1
     song_array = []
     songs = Song.all.sort_by { |song| song.name }
-    #binding.pry
+
     songs.each do |song|
       puts "#{counter}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
       song_array << "#{counter}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
@@ -88,11 +104,13 @@ class MusicLibraryController
   
   def play_song
     puts "Which song number would you like to play?"
-    answer = gets.chomp
- 
-    if answer.to_i > 0 && answer.to_i < list_songs.count
-       puts "Playing #{song.name} by #{song.artist.name}"
+    answer = gets.chomp.to_i
+    
+    if (1..Song.all.length).include?(answer) 
+    song = Song.all.sort_by { |song| song.name }[answer - 1]
+    puts "Playing #{song.name} by #{song.artist.name}"
     end
+  
   end
   
 end
