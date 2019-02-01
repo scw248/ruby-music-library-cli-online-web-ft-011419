@@ -92,7 +92,7 @@ class MusicLibraryController
     answer = gets.chomp.to_i
     
     list_songs[answer - 1]
-    
+    binding.pry
     
 
     # if answer.to_i > 0 && answer.to_i < list_songs.count
