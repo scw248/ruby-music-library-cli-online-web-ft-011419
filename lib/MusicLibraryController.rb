@@ -91,8 +91,8 @@ class MusicLibraryController
     answer = gets.chomp.to_i
     
     if (1..Song.all.length).include?(answer) 
-    Song.all.sort_by { |song| song.name }[answer - 1]
-    #binding.pry
+    song = Song.all.sort_by { |song| song.name }[answer - 1]
+    binding.pry
     end
   
     
