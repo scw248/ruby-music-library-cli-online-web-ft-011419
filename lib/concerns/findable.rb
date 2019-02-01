@@ -1,5 +1,4 @@
 module Concerns::Findable
-  #module ClassMethods
     
     def find_by_name(name)
       all.find { |song| song.name == name }
@@ -13,5 +12,4 @@ module Concerns::Findable
       end
     end
     
-  #end
 end

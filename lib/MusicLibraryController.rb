@@ -22,4 +22,35 @@ class MusicLibraryController
       break if answer == 'exit'
     end
   end
+  
+  def list_songs
+    counter = 1
+    songs = Song.all.sort_by { |song| song.name }
+    #binding.pry
+    songs.each do |song|
+      puts "#{counter}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
+      #binding.pry
+      counter += 1
+    end
+  end
+  
+  def list_artists
+    counter = 1
+    artists = Artist.all.sort_by { |artist| artist.name }
+    #binding.pry
+    artists.each do |artist|
+      puts "#{counter}. #{artist.name}"
+      counter += 1
+    end
+  end
+  
+  def list_genres
+    counter = 1
+    genres = Genre.all.sort_by { |genre| genre.name }
+    #binding.pry
+    genres.each do |genre|
+      puts "#{counter}. #{genre.name}"
+      counter += 1
+    end
+  end
 end
