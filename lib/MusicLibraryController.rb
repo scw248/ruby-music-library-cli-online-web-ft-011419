@@ -89,7 +89,7 @@ class MusicLibraryController
   def play_song
     puts "Which song number would you like to play?"
     answer = gets.chomp
-    binding.pry
+    #binding.pry
     #if answer.to_i > 0 && answer.to_i < list_songs.count
      if list_songs.include?(answer)
        puts "Playing #{song.name} by #{song.artist.name}"
