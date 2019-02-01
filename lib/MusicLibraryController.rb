@@ -90,8 +90,10 @@ class MusicLibraryController
     puts "Which song number would you like to play?"
     answer = gets.chomp.to_i
     
+    if (1..Song.all.length).include?(answer) 
     Song.all.sort_by { |song| song.name }[answer - 1]
     #binding.pry
+    end
   
     
 
