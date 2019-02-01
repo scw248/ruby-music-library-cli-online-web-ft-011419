@@ -92,8 +92,7 @@ class MusicLibraryController
     
     if (1..Song.all.length).include?(answer) 
     song = Song.all.sort_by { |song| song.name }[answer - 1]
-    puts "Playing #{song.name} by #{song.artist}"
-    end
+    puts "Playing #{song.name} by #{song.artist.name}"
   
     
 
