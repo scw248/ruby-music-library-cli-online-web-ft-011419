@@ -25,13 +25,15 @@ class MusicLibraryController
   
   def list_songs
     counter = 1
+    song_array = []
     songs = Song.all.sort_by { |song| song.name }
     #binding.pry
     songs.each do |song|
       puts "#{counter}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
-      #binding.pry
+      song_array << "#{counter}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
       counter += 1
     end
+    song_array
   end
   
   def list_artists
@@ -53,4 +55,44 @@ class MusicLibraryController
       counter += 1
     end
   end
+
+  def list_songs_by_artist
+    puts "Please enter the name of an artist:"
+    answer = gets.chomp
+    
+    counter = 1
+    songs = Song.all.sort_by { |song| song.name }
+    #binding.pry
+    songs.each do |song|
+      if song.artist.name == answer
+      puts "#{counter}. #{song.name} - #{song.genre.name}"
+      counter += 1
+      end
+    end
+  end
+  
+  def list_songs_by_genre
+    puts "Please enter the name of a genre:"
+    answer = gets.chomp
+    
+    counter = 1
+    songs = Song.all.sort_by { |song| song.name }
+    #binding.pry
+    songs.each do |song|
+      if song.genre.name == answer
+      puts "#{counter}. #{song.artist.name} - #{song.name}"
+      counter += 1
+      end
+    end
+  end
+  
+  def play_song
+    puts "Which song number would you like to play?"
+    answer = gets.chomp
+ 
+    if answer.to_i > 0 && answer.to_i < list_songs.count
+       puts "Playing #{song.name} by #{song.artist.name}"
+    end
+  end
+  
 end
