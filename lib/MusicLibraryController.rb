@@ -90,8 +90,7 @@ class MusicLibraryController
     puts "Which song number would you like to play?"
     answer = gets.chomp
 
-    #if answer.to_i > 0 && answer.to_i < list_songs.count
-     if answer
+    if answer.to_i > 0 && answer.to_i < list_songs.count
        #binding.pry
        puts "Playing #{song.name} by #{song.artist.name}"
     end
