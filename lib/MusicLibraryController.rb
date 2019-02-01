@@ -20,6 +20,8 @@ class MusicLibraryController
       puts "What would you like to do?"
       answer = gets.chomp
       break if answer == 'exit'
+      
+      
     end
   end
   
