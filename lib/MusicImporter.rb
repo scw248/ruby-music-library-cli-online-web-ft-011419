@@ -7,9 +7,11 @@ class MusicImporter
   end
   
   def files
+    Dir.entries(path).select { |file| file != "." && file != ".." }
   end
   
   def self.import
+    files.each { |file| Song.new_by_filename(file) }
   end
   
   
