@@ -27,7 +27,7 @@ class MusicLibraryController
     counter = 1
     song_array = []
     songs = Song.all.sort_by { |song| song.name }
-    #binding.pry
+    binding.pry
     songs.each do |song|
       puts "#{counter}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
       song_array << "#{counter}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
