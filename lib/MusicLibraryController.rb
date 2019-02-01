@@ -21,7 +21,9 @@ class MusicLibraryController
       answer = gets.chomp
       break if answer == 'exit'
       
+      case answer
       
+      when 
     end
   end
   
