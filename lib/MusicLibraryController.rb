@@ -91,7 +91,7 @@ class MusicLibraryController
     puts "Which song number would you like to play?"
     answer = gets.chomp.to_i
     
-    songs = Song.all.sort_by { |song| song.name }
+    list_songs[answer - 1]
     
     
 
