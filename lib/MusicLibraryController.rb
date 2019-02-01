@@ -91,6 +91,7 @@ class MusicLibraryController
     answer = gets.chomp
  
     if answer.to_i > 0 && answer.to_i < list_songs.count
+      binding.pry
        puts "Playing #{song.name} by #{song.artist.name}"
     end
   end
