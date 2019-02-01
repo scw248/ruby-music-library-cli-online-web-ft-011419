@@ -91,7 +91,7 @@ class MusicLibraryController
     answer = gets.chomp
     #binding.pry
     #if answer.to_i > 0 && answer.to_i < list_songs.count
-     if list_songs.include?(answer)
+     if answer
        binding.pry
        puts "Playing #{song.name} by #{song.artist.name}"
     end
